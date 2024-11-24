@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
 
-class Section {
+class Section extends Equatable {
   final String section;
   final String description;
   final List<Product> products;
@@ -32,4 +33,11 @@ class Section {
       products: products ?? this.products,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        section,
+        description,
+        products,
+      ];
 }
