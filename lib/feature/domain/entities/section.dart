@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
+import 'package:yandeh_challenge/feature/domain/entities/product.dart';
 
 class Section extends Equatable {
   final String section;

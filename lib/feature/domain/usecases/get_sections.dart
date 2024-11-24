@@ -1,5 +1,5 @@
-import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
-import 'package:yandeh_challenge/features/home/domain/repositories/i_sections_repository.dart';
+import 'package:yandeh_challenge/feature/domain/entities/section.dart';
+import 'package:yandeh_challenge/feature/domain/repositories/i_sections_repository.dart';
 
 class GetSections {
   final ISectionsRepository repository;
