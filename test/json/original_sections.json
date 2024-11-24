@@ -1,0 +1,74 @@
+{
+  "sections": [
+    {
+      "section": "Promo",
+      "description": "Aproveite os melhores preços em hortifruti.",
+      "products": [
+        {
+          "id": 18995,
+          "name": "GOIABA BENASSI VERMELHA NACIONAL COM REDINHA 1 KG",
+          "sku": "1449791",
+          "category": "FRUTAS",
+          "unitType": "",
+          "package": "CAIXA",
+          "ean": "04052176000490-013242",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 6,
+          "price": "3.19"
+        }
+      ]
+    },
+    {
+      "section": "Hortifruti",
+      "description": "Veja opções fresquinhas para abastecer seu hortifruti.",
+      "products": []
+    },
+
+    {
+      "section": "Temperos",
+      "description": "Uma seleção completa para seus clientes.",
+      "products": [
+        {
+          "id": 18992,
+          "name": "CEBOLA BENASSI BRANCA IMPORTADA 1 KG",
+          "sku": "1449654",
+          "category": "TEMPEROS E ERVAS FRESCAS",
+          "unitType": "",
+          "package": "SACO",
+          "ean": "04052176000490-015923",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 20,
+          "price": "2.57"
+        },
+        {
+          "id": 18993,
+          "name": "CEBOLA BENASSI BRANCA NACIONAL 1 KG",
+          "sku": "1449656",
+          "category": "TEMPEROS E ERVAS FRESCAS",
+          "unitType": "",
+          "package": "SACO",
+          "ean": "04052176000490-004117",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 20,
+          "price": "2.49"
+        },
+        {
+          "id": 9082,
+          "name": "ALHO-PORÓ BENASSI NACIONAL UN",
+          "sku": "1387602",
+          "category": "TEMPEROS E ERVAS FRESCAS",
+          "unitType": "",
+          "package": "UNIDADE",
+          "ean": "7898598180135",
+          "unitContent": 0,
+          "unitMessure": "UN",
+          "packageQuantity": 1,
+          "price": "1.77"
+        }
+      ]
+    }
+  ]
+}
