@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yandeh_challenge/app/injection.dart';
+import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
+  late SectionsBloc bloc;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    bloc = di<SectionsBloc>();
+    bloc.add(GetSectionsEvent());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
   }
 
   @override
@@ -23,26 +31,35 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: const Text('Header'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: BlocBuilder<SectionsBloc, SectionsState>(
+        bloc: bloc,
+        buildWhen: (previous, current) =>
+            current is SectionsLoading || current is SectionsLoaded,
+        builder: (context, state) {
+          if (state is SectionsLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is SectionsLoaded) {
+            final sections = state.sections;
+
+            return Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: sections.length,
+                    itemBuilder: (context, index) {
+                      final element = sections[index];
+                      return Text(element.section);
+                    },
+                  ),
+                )
+              ],
+            );
+          }
+
+          return const LimitedBox();
+        },
       ),
     );
   }

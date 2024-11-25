@@ -16,13 +16,14 @@ class RemoteDataSource {
 
     try {
       final response = await client.get(
-          Uri.parse(
-              'https://gateway-smartforce.yandeh.com.br/process/candidates/search-products?argument=*'),
-          headers: headers);
+        Uri.parse(
+            'https://gateway-smartforce.yandeh.com.br/process/candidates/search-products?argument=*'),
+        headers: headers,
+      );
 
       if (response.statusCode == 200) {
-        final Map<String, dynamic> jsonData = jsonDecode(response.body);
-        return jsonData;
+        final Map<String, dynamic> data = jsonDecode(response.body);
+        return data;
       } else {
         debugPrint('Failed to load JSON. Status code: ${response.statusCode}');
         return null;

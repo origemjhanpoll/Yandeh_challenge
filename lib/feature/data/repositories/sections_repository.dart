@@ -8,10 +8,12 @@ class SectionsRepository extends ISectionsRepository {
 
   @override
   Future<List<Section>> getSections({required bool? isOriginalSections}) async {
-    final data = await remote.getSections();
+    final sections = await remote.getSections();
 
-    if (data != null) {
-      return data.values.map((element) => Section.fromJson(element)).toList();
+    if (sections != null) {
+      return (sections['sections'] as List)
+          .map((element) => Section.fromJson(element))
+          .toList();
     } else {
       throw Exception("No sections data found.");
     }

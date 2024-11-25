@@ -4,6 +4,7 @@ import 'package:yandeh_challenge/feature/data/datasources/remote_datasource.dart
 import 'package:yandeh_challenge/feature/data/repositories/sections_repository.dart';
 import 'package:yandeh_challenge/feature/domain/repositories/i_sections_repository.dart';
 import 'package:yandeh_challenge/feature/domain/usecases/get_sections.dart';
+import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
 
 final di = GetIt.instance;
 
@@ -15,4 +16,7 @@ Future<void> init() async {
   di.registerLazySingleton<ISectionsRepository>(
       () => SectionsRepository(di<RemoteDataSource>()));
   di.registerLazySingleton(() => GetSections(di<ISectionsRepository>()));
+  di.registerFactory<SectionsBloc>(
+    () => SectionsBloc(getSections: di<GetSections>()),
+  );
 }
