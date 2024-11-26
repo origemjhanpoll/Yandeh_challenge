@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yandeh_challenge/app/injection.dart';
 import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/molecules/product_card_molecule.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/organisms/section_organism.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     bloc = di<SectionsBloc>();
-    bloc.add(GetSectionsEvent());
+    bloc.add(const GetSectionsEvent());
     super.initState();
   }
 
@@ -43,18 +45,16 @@ class _HomePageState extends State<HomePage> {
           } else if (state is SectionsLoaded) {
             final sections = state.sections;
 
-            return Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: sections.length,
-                    itemBuilder: (context, index) {
-                      final element = sections[index];
-                      return Text(element.section);
-                    },
-                  ),
-                )
-              ],
+            return SingleChildScrollView(
+              primary: true,
+              child: Column(
+                children: [
+                  ...sections.map((section) => SectionOrganism(
+                        section: section,
+                        color: Colors.red,
+                      )),
+                ],
+              ),
             );
           }
 

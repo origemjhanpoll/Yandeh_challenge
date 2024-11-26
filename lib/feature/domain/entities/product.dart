@@ -8,10 +8,10 @@ class Product extends Equatable {
   final String? unitType;
   final String package;
   final String ean;
-  final double unitContent;
+  final int unitContent;
   final String unitMeasure;
   final int packageQuantity;
-  final double price;
+  final String price;
 
   const Product({
     required this.id,
@@ -36,12 +36,10 @@ class Product extends Equatable {
       unitType: json['unitType'] ?? '',
       package: json['package'] ?? '',
       ean: json['ean'] ?? '',
-      unitContent: (json['unitContent'] as num).toDouble(),
+      unitContent: (json['unitContent'] as num).toInt(),
       unitMeasure: json['unitMessure'] ?? '',
-      packageQuantity: json['packageQuantity'],
-      price: (json['price'] as String).isNotEmpty
-          ? double.parse(json['price'])
-          : 0.0,
+      packageQuantity: (json['unitContent'] as num).toInt(),
+      price: (json['price'] as String).isNotEmpty ? json['price'] : '0.0',
     );
   }
 
@@ -53,10 +51,10 @@ class Product extends Equatable {
     String? unitType,
     String? package,
     String? ean,
-    double? unitContent,
+    int? unitContent,
     String? unitMeasure,
     int? packageQuantity,
-    double? price,
+    String? price,
   }) {
     return Product(
       id: id ?? this.id,

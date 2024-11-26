@@ -6,7 +6,10 @@ class GetSections {
 
   GetSections(this.repository);
 
-  Future<List<Section>> call({bool? isOriginalSections}) async {
-    return await repository.getSections(isOriginalSections: isOriginalSections);
+  Future<List<Section>> call({bool? originalSections, String? argument}) async {
+    return await repository.getSections(
+      argument: argument,
+      originalSections: originalSections,
+    );
   }
 }

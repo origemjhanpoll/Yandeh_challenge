@@ -7,8 +7,12 @@ class SectionsRepository extends ISectionsRepository {
   SectionsRepository(this.remote);
 
   @override
-  Future<List<Section>> getSections({required bool? isOriginalSections}) async {
-    final sections = await remote.getSections();
+  Future<List<Section>> getSections(
+      {bool? originalSections, String? argument}) async {
+    final sections = await remote.getSections(
+      argument: argument,
+      originalSections: originalSections,
+    );
 
     if (sections != null) {
       return (sections['sections'] as List)
