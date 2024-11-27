@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
 
 class SectionHeaderMolecule extends StatelessWidget {
   const SectionHeaderMolecule({
     super.key,
     required this.title,
     required this.description,
-    this.textButtton,
+    required this.textButtton,
     this.onPressed,
   });
   final String title;
   final String description;
-  final String? textButtton;
+  final String textButtton;
   final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    final screenMedium = screenWidth > 600;
+    final isScreenMedium = MediaQuery.of(context).size.width > ScreenSize.small;
 
     return DecoratedBox(
       decoration: const BoxDecoration(
@@ -26,7 +25,7 @@ class SectionHeaderMolecule extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(58.0)),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -36,19 +35,14 @@ class SectionHeaderMolecule extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            if (screenMedium)
+            if (isScreenMedium)
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 14.0),
                   child: Text(description),
                 ),
               ),
-            OutlinedButton(
-                style: const ButtonStyle(
-                  minimumSize: WidgetStatePropertyAll(Size(104, 32)),
-                ),
-                onPressed: onPressed,
-                child: textButtton != null ? Text(textButtton!) : null),
+            OutlinedButton(onPressed: onPressed, child: Text(textButtton)),
           ],
         ),
       ),

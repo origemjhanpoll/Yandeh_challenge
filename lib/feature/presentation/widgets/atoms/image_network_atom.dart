@@ -5,19 +5,21 @@ class ImageNetworkAtom extends StatelessWidget {
     super.key,
     required this.src,
     this.semanticLabel,
-    this.width = 182.0,
-    this.height = 182.0,
+    this.width,
+    this.height,
+    this.borderRadius = const BorderRadius.all(Radius.circular(8.0)),
   });
 
   final String? src;
   final String? semanticLabel;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
+  final BorderRadiusGeometry borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: borderRadius,
         child: FadeInImage(
           imageErrorBuilder: (context, exception, stackTrace) {
             return SizedBox(
@@ -25,9 +27,8 @@ class ImageNetworkAtom extends StatelessWidget {
               height: height,
               child: DecoratedBox(
                 decoration: BoxDecoration(color: Colors.blueGrey[50]),
-                child: Icon(
+                child: const Icon(
                   color: Colors.blueGrey,
-                  size: height / 4.0,
                   Icons.dangerous_outlined,
                 ),
               ),

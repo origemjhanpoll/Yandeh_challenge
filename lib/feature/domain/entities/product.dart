@@ -9,7 +9,7 @@ class Product extends Equatable {
   final String package;
   final String ean;
   final int unitContent;
-  final String unitMeasure;
+  final String unitMessure;
   final int packageQuantity;
   final String price;
 
@@ -22,7 +22,7 @@ class Product extends Equatable {
     required this.package,
     required this.ean,
     required this.unitContent,
-    required this.unitMeasure,
+    required this.unitMessure,
     required this.packageQuantity,
     required this.price,
   });
@@ -37,7 +37,7 @@ class Product extends Equatable {
       package: json['package'] ?? '',
       ean: json['ean'] ?? '',
       unitContent: (json['unitContent'] as num).toInt(),
-      unitMeasure: json['unitMessure'] ?? '',
+      unitMessure: json['unitMessure'] ?? '',
       packageQuantity: (json['unitContent'] as num).toInt(),
       price: (json['price'] as String).isNotEmpty ? json['price'] : '0.0',
     );
@@ -65,7 +65,7 @@ class Product extends Equatable {
       package: package ?? this.package,
       ean: ean ?? this.ean,
       unitContent: unitContent ?? this.unitContent,
-      unitMeasure: unitMeasure ?? this.unitMeasure,
+      unitMessure: unitMeasure ?? this.unitMessure,
       packageQuantity: packageQuantity ?? this.packageQuantity,
       price: price ?? this.price,
     );
@@ -81,7 +81,7 @@ class Product extends Equatable {
         package,
         ean,
         unitContent,
-        unitMeasure,
+        unitMessure,
         packageQuantity,
         price,
       ];

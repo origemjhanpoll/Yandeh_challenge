@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yandeh_challenge/app/injection.dart';
 import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/molecules/product_card_molecule.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/molecules/banner_card_molecule.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/organisms/section_organism.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,9 +17,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    bloc = di<SectionsBloc>();
-    bloc.add(const GetSectionsEvent());
     super.initState();
+    bloc = di<SectionsBloc>();
+    bloc.add(const GetSectionsEvent(argument: '1383609'));
   }
 
   @override
@@ -45,15 +45,47 @@ class _HomePageState extends State<HomePage> {
           } else if (state is SectionsLoaded) {
             final sections = state.sections;
 
-            return SingleChildScrollView(
-              primary: true,
-              child: Column(
-                children: [
-                  ...sections.map((section) => SectionOrganism(
-                        section: section,
-                        color: Colors.red,
-                      )),
-                ],
+            return Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1168.0),
+                child: SingleChildScrollView(
+                  primary: true,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        ...sections.map((section) => section.products.isNotEmpty
+                            ? Column(
+                                children: [
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 16.0),
+                                    child: SectionOrganism(
+                                      section: section,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 16.0),
+                                    child: BannerCardMolecule(
+                                      onPressed: () {},
+                                      image:
+                                          'https://images.unsplash.com/photo-1668179456564-db429f9de8e8?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                      title: 'Hortifruti Perfeito!',
+                                      subtitle:
+                                          'Veja opções fresquinhas para abastecer seu hortifruti.',
+                                      textButtton: 'Ver mais',
+                                      color: const Color(0xFF72C532),
+                                    ),
+                                  )
+                                ],
+                              )
+                            : const LimitedBox()),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             );
           }
