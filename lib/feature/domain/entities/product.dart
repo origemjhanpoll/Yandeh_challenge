@@ -52,7 +52,7 @@ class Product extends Equatable {
     String? package,
     String? ean,
     int? unitContent,
-    String? unitMeasure,
+    String? unitMessure,
     int? packageQuantity,
     String? price,
   }) {
@@ -65,7 +65,7 @@ class Product extends Equatable {
       package: package ?? this.package,
       ean: ean ?? this.ean,
       unitContent: unitContent ?? this.unitContent,
-      unitMessure: unitMeasure ?? this.unitMessure,
+      unitMessure: unitMessure ?? this.unitMessure,
       packageQuantity: packageQuantity ?? this.packageQuantity,
       price: price ?? this.price,
     );

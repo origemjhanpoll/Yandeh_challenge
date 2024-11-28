@@ -4,6 +4,7 @@ import 'package:yandeh_challenge/app/injection.dart';
 import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/molecules/banner_card_molecule.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/organisms/section_organism.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     bloc = di<SectionsBloc>();
-    bloc.add(const GetSectionsEvent(argument: '1383609'));
+    bloc.add(const GetSectionsEvent());
   }
 
   @override
@@ -47,11 +48,11 @@ class _HomePageState extends State<HomePage> {
 
             return Center(
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1168.0),
+                constraints: const BoxConstraints(maxWidth: ScreenSize.medium),
                 child: SingleChildScrollView(
                   primary: true,
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: Column(
                       children: [
                         ...sections.map((section) => section.products.isNotEmpty
@@ -61,6 +62,8 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         const EdgeInsets.only(bottom: 16.0),
                                     child: SectionOrganism(
+                                      onPressed: () {},
+                                      onNextPressed: () {},
                                       section: section,
                                       color: Colors.red,
                                     ),
