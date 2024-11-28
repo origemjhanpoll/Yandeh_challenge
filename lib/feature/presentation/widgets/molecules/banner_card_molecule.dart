@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/atoms/image_network_atom.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
 
 class BannerCardMolecule extends StatelessWidget {
   const BannerCardMolecule({
@@ -22,8 +21,6 @@ class BannerCardMolecule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final screenSize = MediaQuery.of(context).size;
-    final isScreenMedium = screenSize.width > ScreenSize.small;
 
     return ConstrainedBox(
       constraints: const BoxConstraints(maxHeight: 280.0, minHeight: 184.0),

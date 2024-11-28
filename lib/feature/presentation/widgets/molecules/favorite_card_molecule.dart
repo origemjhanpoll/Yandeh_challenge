@@ -18,7 +18,6 @@ class FavoriteCardMolecule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final isScreenMedium = MediaQuery.of(context).size.width > ScreenSize.small;
 
     return SizedBox(
       height: 115.0,
