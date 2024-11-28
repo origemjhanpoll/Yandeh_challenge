@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:yandeh_challenge/feature/domain/entities/section.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/atoms/icon_elevation_button_atom.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/molecules/product_card_molecule.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/molecules/section_header_molecule.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
@@ -12,14 +13,12 @@ class SectionOrganism extends StatefulWidget {
     super.key,
     required this.section,
     required this.color,
-    this.onPressed,
-    this.onNextPressed,
+    this.onAdd,
   });
 
   final Section section;
   final Color color;
-  final void Function()? onPressed;
-  final void Function()? onNextPressed;
+  final void Function()? onAdd;
 
   @override
   State<SectionOrganism> createState() => _SectionOrganismState();
@@ -108,7 +107,7 @@ class _SectionOrganismState extends State<SectionOrganism> {
                         description: widget.section.description,
                         textButtton:
                             'Ver ${widget.section.products.length} itens',
-                        onPressed: widget.onPressed,
+                        onPressed: widget.onAdd,
                       ),
                     ),
                     Flexible(
@@ -146,42 +145,21 @@ class _SectionOrganismState extends State<SectionOrganism> {
         ),
         if (isScreenMedium && kIsWeb)
           Positioned(
-            right: -8.0,
+            right: 0,
             top: sectionSize / 2,
-            child: Material(
-              color: Colors.white,
-              elevation: 2.0,
-              borderRadius: BorderRadius.circular(16.0),
-              child: IconButton(
-                  color: Colors.black,
-                  style: IconButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                      )),
-                  onPressed: _scrollToNextItem,
-                  icon: const Icon(Icons.chevron_right)),
+            child: IconElevationButtonAtom(
+              icon: Icons.chevron_right,
+              onPressed: _scrollToNextItem,
             ),
           ),
         if (currentIndex > 0 && isScreenMedium && kIsWeb)
           Positioned(
-            left: -8.0,
-            top: sectionSize / 2,
-            child: Material(
-              color: Colors.white,
-              elevation: 2.0,
-              borderRadius: BorderRadius.circular(16.0),
-              child: IconButton(
-                  color: Colors.black,
-                  style: IconButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                      )),
-                  onPressed: _scrollToPreviousItem,
-                  icon: const Icon(Icons.chevron_left)),
-            ),
-          ),
+              left: 0,
+              top: sectionSize / 2,
+              child: IconElevationButtonAtom(
+                icon: Icons.chevron_left,
+                onPressed: _scrollToPreviousItem,
+              )),
       ],
     );
   }

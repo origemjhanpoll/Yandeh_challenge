@@ -8,12 +8,14 @@ class ImageNetworkAtom extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius = const BorderRadius.all(Radius.circular(8.0)),
+    this.fit = BoxFit.cover,
   });
 
   final String? src;
   final String? semanticLabel;
   final double? width;
   final double? height;
+  final BoxFit fit;
   final BorderRadiusGeometry borderRadius;
 
   @override
@@ -36,7 +38,7 @@ class ImageNetworkAtom extends StatelessWidget {
           },
           placeholder: const AssetImage('assets/placeholder.png'),
           image: NetworkImage(src ?? ''),
-          fit: BoxFit.cover,
+          fit: fit,
           height: height,
           width: width,
         ));

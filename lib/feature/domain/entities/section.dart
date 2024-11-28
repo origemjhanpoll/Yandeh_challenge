@@ -3,12 +3,12 @@ import 'package:yandeh_challenge/feature/domain/entities/product.dart';
 
 class Section extends Equatable {
   final String section;
-  final String description;
+  final String? description;
   final List<Product> products;
 
   const Section({
     required this.section,
-    required this.description,
+    this.description,
     required this.products,
   });
 

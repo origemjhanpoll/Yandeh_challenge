@@ -5,12 +5,12 @@ class SectionHeaderMolecule extends StatelessWidget {
   const SectionHeaderMolecule({
     super.key,
     required this.title,
-    required this.description,
+    this.description,
     required this.textButtton,
     this.onPressed,
   });
   final String title;
-  final String description;
+  final String? description;
   final String textButtton;
   final void Function()? onPressed;
 
@@ -35,11 +35,13 @@ class SectionHeaderMolecule extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            if (isScreenMedium)
+            if (description != null &&
+                description!.isNotEmpty &&
+                isScreenMedium)
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 14.0),
-                  child: Text(description),
+                  child: Text(description!),
                 ),
               ),
             OutlinedButton(onPressed: onPressed, child: Text(textButtton)),
