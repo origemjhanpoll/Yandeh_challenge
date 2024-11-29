@@ -14,6 +14,7 @@ class ProductCardMolecule extends StatelessWidget {
     required this.caption,
     required this.footerText,
     this.onPressed,
+    required this.isAdded,
   });
   final String? image;
   final String title;
@@ -21,6 +22,7 @@ class ProductCardMolecule extends StatelessWidget {
   final String label;
   final String caption;
   final String footerText;
+  final bool isAdded;
   final void Function()? onPressed;
 
   @override
@@ -50,9 +52,14 @@ class ProductCardMolecule extends StatelessWidget {
                   height: 182.0,
                 ),
                 Align(
-                  alignment: Alignment.centerRight,
-                  child: IconButtonAtom(onPressed: onPressed),
-                ),
+                    alignment: Alignment.centerRight,
+                    child: isAdded
+                        ? IconButtonAtom(
+                            onPressed: onPressed,
+                            backgroundColor: Colors.green,
+                            icon: const Icon(Icons.check),
+                          )
+                        : IconButtonAtom(onPressed: onPressed)),
               ]),
               Text(
                 title,

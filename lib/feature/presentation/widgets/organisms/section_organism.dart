@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:yandeh_challenge/feature/domain/entities/product.dart';
 import 'package:yandeh_challenge/feature/domain/entities/section.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/atoms/icon_elevation_button_atom.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/molecules/product_card_molecule.dart';
@@ -13,12 +14,14 @@ class SectionOrganism extends StatefulWidget {
     super.key,
     required this.section,
     required this.color,
-    this.onAdd,
+    required this.onAdd,
+    required this.addedList,
   });
 
   final Section section;
   final Color color;
-  final void Function()? onAdd;
+  final void Function(Product) onAdd;
+  final List<int> addedList;
 
   @override
   State<SectionOrganism> createState() => _SectionOrganismState();
@@ -107,7 +110,7 @@ class _SectionOrganismState extends State<SectionOrganism> {
                         description: widget.section.description,
                         textButtton:
                             'Ver ${widget.section.products.length} itens',
-                        onPressed: widget.onAdd,
+                        onPressed: () {},
                       ),
                     ),
                     Flexible(
@@ -120,9 +123,9 @@ class _SectionOrganismState extends State<SectionOrganism> {
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           final product = widget.section.products[index];
-
                           return ProductCardMolecule(
-                            onPressed: () {},
+                            isAdded: widget.addedList.contains(product.id),
+                            onPressed: () => widget.onAdd(product),
                             image:
                                 'https://s3-alpha-sig.figma.com/img/3d07/100e/c12efb8956c87335b9763b3771d7dfab?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fScalgZsV39EGcV~9WkM3722wUaZw9PdwXssBlipYgnBNIzrfK2kfkeCphgivDTho47tQTqbFSY3pmxb7ZfynBgtLBOd6JfJQZeD3HDw7uATQGUexQMjWAHN41E6qqvSxLDXiyI-TVNOQGD9UB9R4lgFExI~pxnYX4UxM1pKOO2AVgDiz2VCQ-9T-n~82EETDF2sjZ2PsdbPy0HcEXvjxCo6ZDAj5RZ9QsUb-w7Md3SYurQW5TRgCsyGldmccRhasIvM4I2vrrax3DUvpK1krbbdLVvHBVU8G5vK5Lk02RC0d7FaXyg50YIGKU1bXc0h2sphLKt2go4fBl~a8RrRbw__',
                             title:

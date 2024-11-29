@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yandeh_challenge/app/injection.dart';
 import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/atoms/chip_atom.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/atoms/logo_atom.dart';
+import 'package:yandeh_challenge/feature/presentation/widgets/molecules/account_logged_molecule.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/molecules/banner_card_molecule.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/organisms/favorite_sections_organism.dart';
 import 'package:yandeh_challenge/feature/presentation/widgets/organisms/section_organism.dart';
@@ -16,6 +19,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late SectionsBloc bloc;
+
+  List<int> productsCount = [];
+  int selectedCategory = 2;
+  final categories = [
+    'Todas categorias',
+    'Campanhas',
+    'Frutas Yandeh',
+    'Indústrias e marcas',
+    'Pedidos',
+    'Importação de pedidos'
+  ];
 
   @override
   void initState() {
@@ -32,10 +46,86 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isScreenMedium = MediaQuery.of(context).size.width > ScreenSize.small;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Header'),
+        forceMaterialTransparency: true,
+        title: isScreenMedium
+            ? ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: ScreenSize.medium),
+                child: Row(
+                  children: [
+                    const LogoAtom(),
+                    const Flexible(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: SearchBar(
+                          elevation: WidgetStatePropertyAll(4.0),
+                          hintText: 'Buscar produtos',
+                          constraints: BoxConstraints(minHeight: 40.0),
+                          backgroundColor: WidgetStatePropertyAll(Colors.white),
+                        ),
+                      ),
+                    ),
+                    const Flexible(
+                      child: AccountLoggedMolecule(
+                        title: 'Mercadinho Maristela',
+                        subtitle: '05.892.738/0001-24',
+                      ),
+                    ),
+                    FilledButton.icon(
+                      // ignore: prefer_is_empty
+                      label: Text(productsCount.length > 0
+                          ? productsCount.length.toString()
+                          : 'Carrinho'),
+                      style: const ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(Colors.red)),
+                      icon: const Icon(Icons.shopping_cart_outlined),
+                      onPressed: () {
+                        setState(() {
+                          productsCount.clear();
+                        });
+                      },
+                    )
+                  ],
+                ),
+              )
+            : const AccountLoggedMolecule(
+                title: 'Mercadinho Maristela',
+                subtitle: '05.892.738/0001-24',
+              ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(48.0),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+                maxHeight: 48.0, maxWidth: ScreenSize.medium),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  final category = categories[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 4.0),
+                    child: ChipAtom(
+                      selected: selectedCategory == index,
+                      onSelected: (value) {
+                        setState(() {
+                          selectedCategory = index;
+                        });
+                      },
+                      label: category,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
       ),
       body: BlocBuilder<SectionsBloc, SectionsState>(
         bloc: bloc,
@@ -47,13 +137,14 @@ class _HomePageState extends State<HomePage> {
           } else if (state is SectionsLoaded) {
             final sections = state.sections;
 
-            return Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: ScreenSize.medium),
-                child: SingleChildScrollView(
-                  primary: true,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+            return SafeArea(
+              bottom: false,
+              child: Center(
+                child: ConstrainedBox(
+                  constraints:
+                      const BoxConstraints(maxWidth: ScreenSize.medium),
+                  child: SingleChildScrollView(
+                    primary: true,
                     child: Column(
                       children: [
                         Padding(
@@ -71,7 +162,17 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         const EdgeInsets.only(bottom: 16.0),
                                     child: SectionOrganism(
-                                      onAdd: () {},
+                                      addedList: productsCount,
+                                      onAdd: (prod) {
+                                        setState(() {
+                                          if (!productsCount
+                                              .contains(prod.id)) {
+                                            productsCount.add(prod.id);
+                                          } else {
+                                            productsCount.remove(prod.id);
+                                          }
+                                        });
+                                      },
                                       section: section,
                                       color: Colors.red,
                                     ),
