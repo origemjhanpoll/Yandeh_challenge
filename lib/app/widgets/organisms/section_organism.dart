@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:yandeh_challenge/feature/domain/entities/product.dart';
-import 'package:yandeh_challenge/feature/domain/entities/section.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/atoms/icon_elevation_button_atom.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/molecules/product_card_molecule.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/molecules/section_header_molecule.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
+import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
+import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
+import 'package:yandeh_challenge/app/widgets/atoms/icon_elevation_button_atom.dart';
+import 'package:yandeh_challenge/app/widgets/molecules/product_card_molecule.dart';
+import 'package:yandeh_challenge/app/widgets/molecules/section_header_molecule.dart';
+import 'package:yandeh_challenge/app/widgets/styles/sizes.dart';
 
 class SectionOrganism extends StatefulWidget {
   const SectionOrganism({

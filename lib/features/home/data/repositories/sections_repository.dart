@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:yandeh_challenge/feature/data/datasources/remote_datasource.dart';
-import 'package:yandeh_challenge/feature/domain/entities/section.dart';
-import 'package:yandeh_challenge/feature/domain/repositories/i_sections_repository.dart';
+import 'package:yandeh_challenge/features/home/data/datasources/remote_datasource.dart';
+import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
+import 'package:yandeh_challenge/features/home/domain/repositories/i_sections_repository.dart';
 
 class SectionsRepository extends ISectionsRepository {
   final RemoteDataSource remote;

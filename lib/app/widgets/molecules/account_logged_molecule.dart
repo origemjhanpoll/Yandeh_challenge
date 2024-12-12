@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
+import 'package:yandeh_challenge/app/widgets/styles/sizes.dart';
 
 class AccountLoggedMolecule extends StatelessWidget {
   const AccountLoggedMolecule({

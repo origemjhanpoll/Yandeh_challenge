@@ -1,16 +1,14 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yandeh_challenge/app/injection.dart';
-import 'package:yandeh_challenge/feature/presentation/bloc/sections_bloc.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/atoms/chip_atom.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/atoms/logo_atom.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/molecules/account_logged_molecule.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/molecules/banner_card_molecule.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/organisms/favorite_sections_organism.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/organisms/section_organism.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
+import 'package:yandeh_challenge/features/home/presentation/bloc/sections_bloc.dart';
+import 'package:yandeh_challenge/app/widgets/atoms/chip_atom.dart';
+import 'package:yandeh_challenge/app/widgets/atoms/logo_atom.dart';
+import 'package:yandeh_challenge/app/widgets/molecules/account_logged_molecule.dart';
+import 'package:yandeh_challenge/app/widgets/molecules/banner_card_molecule.dart';
+import 'package:yandeh_challenge/app/widgets/organisms/favorite_sections_organism.dart';
+import 'package:yandeh_challenge/app/widgets/organisms/section_organism.dart';
+import 'package:yandeh_challenge/app/widgets/styles/sizes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,7 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late SectionsBloc bloc;
   late TextEditingController controller;
-  Timer? _debounce;
 
   List<int> productsCount = [];
   int selectedCategory = 2;

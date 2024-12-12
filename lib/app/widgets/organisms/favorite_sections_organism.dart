@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:yandeh_challenge/feature/domain/entities/section.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/atoms/image_network_atom.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/molecules/favorite_card_molecule.dart';
-import 'package:yandeh_challenge/feature/presentation/widgets/styles/sizes.dart';
+import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
+import 'package:yandeh_challenge/app/widgets/atoms/image_network_atom.dart';
+import 'package:yandeh_challenge/app/widgets/molecules/favorite_card_molecule.dart';
+import 'package:yandeh_challenge/app/widgets/styles/sizes.dart';
 
 class FavoriteSectionsOrganism extends StatelessWidget {
   const FavoriteSectionsOrganism({

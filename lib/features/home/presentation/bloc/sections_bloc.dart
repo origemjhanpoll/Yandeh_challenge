@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:yandeh_challenge/feature/domain/entities/section.dart';
-import 'package:yandeh_challenge/feature/domain/usecases/get_sections.dart';
+import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
+import 'package:yandeh_challenge/features/home/domain/usecases/get_sections.dart';
 
 part 'sections_event.dart';
 part 'sections_state.dart';

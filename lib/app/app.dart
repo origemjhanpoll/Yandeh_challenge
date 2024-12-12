@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yandeh_challenge/feature/presentation/pages/home_page.dart';
+import 'package:yandeh_challenge/features/home/presentation/pages/home_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
