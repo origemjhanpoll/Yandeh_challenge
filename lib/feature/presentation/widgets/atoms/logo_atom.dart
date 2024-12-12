@@ -7,7 +7,7 @@ class LogoAtom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'assets/logo_fill.svg',
+      'assets/logofill.svg',
       width: 160,
     );
   }

@@ -18,9 +18,10 @@ class SectionsBloc extends Bloc<SectionsEvent, SectionsState> {
     emit(SectionsLoading());
     try {
       final sections = await getSections(
-        originalSections: event.originalSections,
-        argument: event.argument,
-      );
+          originalSections: event.originalSections, argument: event.argument);
+      if (sections.isEmpty) {
+        emit(SectionsEmpty());
+      }
       emit(SectionsLoaded(sections: sections));
     } catch (e, s) {
       debugPrint('Erro: $e');

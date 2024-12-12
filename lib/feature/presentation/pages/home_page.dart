@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yandeh_challenge/app/injection.dart';
@@ -19,9 +21,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late SectionsBloc bloc;
+  late TextEditingController controller;
+  Timer? _debounce;
 
   List<int> productsCount = [];
   int selectedCategory = 2;
+  bool hasShearch = false;
   final categories = [
     'Todas categorias',
     'Campanhas',
@@ -35,13 +40,24 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     bloc = di<SectionsBloc>();
-    bloc.add(const GetSectionsEvent());
+    controller = TextEditingController();
+    controller.addListener(_updateSections);
+    bloc.add(const GetSectionsEvent(originalSections: true));
   }
 
   @override
   void dispose() {
     bloc.close();
+    controller.dispose();
     super.dispose();
+  }
+
+  void _updateSections() {
+    setState(() {
+      if (controller.text.isEmpty) {
+        bloc.add(const GetSectionsEvent(originalSections: true));
+      }
+    });
   }
 
   @override
@@ -57,15 +73,40 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     const LogoAtom(),
-                    const Flexible(
-                      flex: 2,
+                    Flexible(
+                      flex: 3,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: SearchBar(
-                          elevation: WidgetStatePropertyAll(4.0),
+                          overlayColor:
+                              const WidgetStatePropertyAll(Colors.white),
+                          controller: controller,
+                          onSubmitted: (value) {
+                            if (controller.text.isNotEmpty) {
+                              bloc.add(
+                                  GetSectionsEvent(argument: controller.text));
+                            }
+                          },
+                          trailing: [
+                            IconButton(
+                              icon: controller.text.isNotEmpty
+                                  ? const Icon(Icons.close)
+                                  : const Icon(Icons.search),
+                              color: Colors.red,
+                              // ignore: prefer_is_empty
+                              onPressed: () {
+                                if (controller.text.isNotEmpty) {
+                                  bloc.add(GetSectionsEvent(
+                                      argument: controller.text));
+                                }
+                              },
+                            )
+                          ],
+                          elevation: const WidgetStatePropertyAll(4.0),
                           hintText: 'Buscar produtos',
-                          constraints: BoxConstraints(minHeight: 40.0),
-                          backgroundColor: WidgetStatePropertyAll(Colors.white),
+                          constraints: const BoxConstraints(minHeight: 40.0),
+                          backgroundColor:
+                              const WidgetStatePropertyAll(Colors.white),
                         ),
                       ),
                     ),
@@ -130,10 +171,14 @@ class _HomePageState extends State<HomePage> {
       body: BlocBuilder<SectionsBloc, SectionsState>(
         bloc: bloc,
         buildWhen: (previous, current) =>
-            current is SectionsLoading || current is SectionsLoaded,
+            current is SectionsLoading ||
+            current is SectionsLoaded ||
+            current is SectionsEmpty,
         builder: (context, state) {
           if (state is SectionsLoading) {
             return const Center(child: CircularProgressIndicator());
+          } else if (state is SectionsEmpty) {
+            return const Center(child: Text('Nenhum produto encontrado!'));
           } else if (state is SectionsLoaded) {
             final sections = state.sections;
 
