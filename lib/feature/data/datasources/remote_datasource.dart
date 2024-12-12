@@ -8,36 +8,24 @@ class RemoteDataSource {
   final http.Client client;
   RemoteDataSource({required this.client});
 
-  Future<Map<String, dynamic>?> getSections(
+  Future<Map<String, dynamic>> getSections(
       {bool? originalSections, String? argument}) async {
     final headers = _buildHeaders();
     final url = _buildUrl(argument, originalSections);
+    final response = await client.get(
+      Uri.parse(url),
+      headers: headers,
+    );
 
-    try {
-      final response = await client.get(
-        Uri.parse(url),
-        headers: headers,
-      );
-
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = jsonDecode(response.body);
-        debugPrint('Request URL: ${response.request?.url}');
-        return data;
-      } else {
-        debugPrint(
-            'Failed to load JSON. Status code: ${response.statusCode}, URL: $url');
-        return null;
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = jsonDecode(response.body);
+      debugPrint('Request URL: ${response.request?.url}');
+      return data;
+    } else {
+      if (response.body.contains('message')) {
+        throw HttpException(jsonDecode(response.body)['message']);
       }
-    } on SocketException catch (e) {
-      debugPrint('No internet connection: $e');
-      return null;
-    } on HttpException catch (e) {
-      debugPrint('HTTP error: $e');
-      return null;
-    } catch (e, stacktrace) {
-      debugPrint('Unexpected error: $e');
-      debugPrint('Stacktrace: $stacktrace');
-      return null;
+      throw HttpException(response.body);
     }
   }
 
@@ -59,7 +47,7 @@ class RemoteDataSource {
 
   Map<String, String> _buildHeaders() {
     return {
-      'token': '2e227fd8-3d5a-4fb7-b119-8a1c07830c96',
+      'token': '4e82bf6c-4ccd-4c4f-804e-8317a195d1ea',
       'Content-Type': 'application/json',
     };
   }

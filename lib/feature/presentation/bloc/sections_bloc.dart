@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
@@ -23,8 +25,11 @@ class SectionsBloc extends Bloc<SectionsEvent, SectionsState> {
         emit(SectionsEmpty());
       }
       emit(SectionsLoaded(sections: sections));
+    } on HttpException catch (e) {
+      emit(SectionsError(message: e.message));
     } catch (e, s) {
-      debugPrint('Erro: $e');
+      emit(SectionsError(message: 'Erro: $e'));
+      debugPrint('Erro bloc: $e');
       debugPrint('Stack trace: $s');
     }
   }

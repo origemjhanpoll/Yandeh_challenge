@@ -23,4 +23,11 @@ class SectionsEmpty extends SectionsState {}
 
 class SectionsWarning extends SectionsState {}
 
-class SectionsError extends SectionsState {}
+class SectionsError extends SectionsState {
+  final String message;
+
+  const SectionsError({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}

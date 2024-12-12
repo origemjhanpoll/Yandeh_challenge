@@ -173,12 +173,15 @@ class _HomePageState extends State<HomePage> {
         buildWhen: (previous, current) =>
             current is SectionsLoading ||
             current is SectionsLoaded ||
+            current is SectionsError ||
             current is SectionsEmpty,
         builder: (context, state) {
           if (state is SectionsLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is SectionsEmpty) {
             return const Center(child: Text('Nenhum produto encontrado!'));
+          } else if (state is SectionsError) {
+            return Center(child: Text(state.message));
           } else if (state is SectionsLoaded) {
             final sections = state.sections;
 

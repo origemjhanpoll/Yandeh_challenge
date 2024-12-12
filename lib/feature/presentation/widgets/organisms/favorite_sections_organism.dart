@@ -67,7 +67,7 @@ class FavoriteSectionsOrganism extends StatelessWidget {
                   return FavoriteCardMolecule(
                     color: const Color(0xFF007C61),
                     image:
-                        'https://s3-alpha-sig.figma.com/img/e81d/d19f/c679b588aa27d26228f45f0ed3d0c4ef?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=IlneJH1~Azamfr2iQ06~ffKo4Ju3IHiJc57GjzhJ5HWoFKFibt-7REXZCXLhyE2kPHYe5xUUiB6LbnKrYwwdvypRT0-uDV-4XaUWBPbD7xuLfa7O~DcdcnbGemlpXccsugz64GnyAuzUWhNtSzr34tEkwPxnkTQKxeGZSy3Km-NofNOOeZs2tU1WRgPH0voBHl5M2~8GXhV6LbARPeL4-c40ll1~cKiOrMGF9zxcmWlVEn4K66uYl9PIMMMwIQBn0fYzmhZ9Q9x2CDj8ld65oThxgEzJ2avdQq~edfZw1opmTVN5noIs8Z~am6SXt1Sv~kMfUyocQkBEPokmTlH4PA__',
+                        'https://s3-alpha-sig.figma.com/img/e81d/d19f/c679b588aa27d26228f45f0ed3d0c4ef?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AnMeSvZhknlskIb82A445AT0VhPuOXuX8bfMU7eUu9iZ4KBbKAFr1TX2L2ox1nbnhr2b1uuwIOYg57IiMmnAq21zDppes5ZCvwdy0m0-nky2ERwaxo~kIRjX-l1qZZHKji7VefQmLatyBp3U7cry4ZEKxaAilFBlnv~ywd5frE7gdAADdL7ZZhPC~TgkU0B~Ce2XxxiJ3OH09EpLcxMwYwwtzqPGBun4Kxkc0CHKzYpzHnRCaFLplF3CY2EYgWjA~-D5SmQ23wz8oV3OAYonqH4y8nO2xd94fQMwZElYtKClvLrDh2U2wSvsEro29CYx~AFoJV3hDu~izCUbbwH2ww__',
                     title: section.section,
                   );
                 },
