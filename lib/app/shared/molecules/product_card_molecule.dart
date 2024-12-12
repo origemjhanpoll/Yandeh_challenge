@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yandeh_challenge/app/widgets/atoms/icon_button_atom.dart';
-import 'package:yandeh_challenge/app/widgets/atoms/image_network_atom.dart';
-import 'package:yandeh_challenge/app/widgets/atoms/label_atom.dart';
-import 'package:yandeh_challenge/app/widgets/styles/sizes.dart';
+import 'package:yandeh_challenge/app/shared/atoms/icon_button_atom.dart';
+import 'package:yandeh_challenge/app/shared/atoms/image_network_atom.dart';
+import 'package:yandeh_challenge/app/shared/atoms/label_atom.dart';
+import 'package:yandeh_challenge/app/shared/styles/sizes.dart';
 
 class ProductCardMolecule extends StatelessWidget {
   const ProductCardMolecule({

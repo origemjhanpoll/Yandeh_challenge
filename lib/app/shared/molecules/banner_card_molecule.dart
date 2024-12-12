@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yandeh_challenge/app/widgets/atoms/image_network_atom.dart';
+import 'package:yandeh_challenge/app/shared/atoms/image_network_atom.dart';
 
 class BannerCardMolecule extends StatelessWidget {
   const BannerCardMolecule({

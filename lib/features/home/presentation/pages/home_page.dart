@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yandeh_challenge/app/injection.dart';
 import 'package:yandeh_challenge/features/home/presentation/bloc/sections_bloc.dart';
-import 'package:yandeh_challenge/app/widgets/atoms/chip_atom.dart';
-import 'package:yandeh_challenge/app/widgets/atoms/logo_atom.dart';
-import 'package:yandeh_challenge/app/widgets/molecules/account_logged_molecule.dart';
-import 'package:yandeh_challenge/app/widgets/molecules/banner_card_molecule.dart';
-import 'package:yandeh_challenge/app/widgets/organisms/favorite_sections_organism.dart';
-import 'package:yandeh_challenge/app/widgets/organisms/section_organism.dart';
-import 'package:yandeh_challenge/app/widgets/styles/sizes.dart';
+import 'package:yandeh_challenge/app/shared/atoms/chip_atom.dart';
+import 'package:yandeh_challenge/app/shared/atoms/logo_atom.dart';
+import 'package:yandeh_challenge/app/shared/molecules/account_logged_molecule.dart';
+import 'package:yandeh_challenge/app/shared/molecules/banner_card_molecule.dart';
+import 'package:yandeh_challenge/app/shared/organisms/favorite_sections_organism.dart';
+import 'package:yandeh_challenge/app/shared/organisms/section_organism.dart';
+import 'package:yandeh_challenge/app/shared/styles/sizes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
