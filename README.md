@@ -2,30 +2,31 @@
 
 A new Flutter project.
 
-## Getting Started
+## Estrutura
 
-This project is a starting point for a Flutter application.
+sdfgsdgdsg
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
 
 lib/
-├── app/  
-│ ├── shared/ # Biblioteca de componentes compartilhados
-│ │ ├── atoms/
-│ │ ├── molecules/
-│ │ ├── organisms/
-│ │ ├── templates/ # (Opcional)
-│ │ └── styles/ # Estilos globais, como temas, cores e tipografia
-│ ├── routes/ # Configuração de rotas
-│ ├── dependencies/ # Configuração de injeção de dependência
-│ └── env/ # Configurações de ambiente
-├── core/ # Recursos genéricos (ex: erros, validações, utilidades)
+├── app/
+│   ├── shared/ # Biblioteca de componentes compartilhados
+│   │   ├── atoms/
+│   │   ├── molecules/
+│   │   ├── organisms/
+│   │   └── styles/ # Estilos globais, como temas, cores e tipografia
+│   ├── routes/ # Configuração de rotas
+│   ├── dependencies/ # Configuração de injeção de dependência
+│   └── env/ # Configurações de ambiente
 ├── features/ # Funcionalidades do aplicativo
+│   ├── home/ # Home
+│   │   ├── data/
+│   │   │   ├── datasources/
+│   │   │   └── repositories/
+│   │   ├── domain/
+│   │   └── presentation/
+│   ├── routes/ # Configuração de rotas
+│   ├── dependencies/ # Configuração de injeção de dependência
+│   └── env/ # Configurações de ambiente
 ├── main.dart
+```

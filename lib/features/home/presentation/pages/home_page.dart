@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yandeh_challenge/app/injection.dart';
+import 'package:yandeh_challenge/app/dependencies/injection.dart';
 import 'package:yandeh_challenge/features/home/presentation/bloc/sections_bloc.dart';
 import 'package:yandeh_challenge/app/shared/atoms/chip_atom.dart';
 import 'package:yandeh_challenge/app/shared/atoms/logo_atom.dart';
