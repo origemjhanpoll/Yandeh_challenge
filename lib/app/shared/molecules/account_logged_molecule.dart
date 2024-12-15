@@ -16,29 +16,30 @@ class AccountLoggedMolecule extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final isScreenMedium = MediaQuery.of(context).size.width > ScreenSize.small;
 
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      title: Text(
-        title,
-        maxLines: 1,
-        textAlign: isScreenMedium ? TextAlign.left : TextAlign.center,
-        overflow: TextOverflow.ellipsis,
-        style: theme.textTheme.titleLarge!.copyWith(
-          color: const Color(0xFF04283B),
-          fontSize: isScreenMedium ? 16 : 22,
-          fontWeight: FontWeight.w400,
+    return Column(
+      children: [
+        Text(
+          title,
+          maxLines: 1,
+          textAlign: isScreenMedium ? TextAlign.left : TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          style: theme.textTheme.titleLarge!.copyWith(
+            color: const Color(0xFF04283B),
+            fontSize: isScreenMedium ? 16 : 22,
+            fontWeight: FontWeight.w400,
+          ),
         ),
-      ),
-      subtitle: Text(
-        subtitle,
-        maxLines: 1,
-        textAlign: isScreenMedium ? TextAlign.left : TextAlign.center,
-        overflow: TextOverflow.ellipsis,
-        style: theme.textTheme.bodyLarge!.copyWith(
-          color: theme.hintColor,
-          fontSize: isScreenMedium ? 12 : 14,
+        Text(
+          subtitle,
+          maxLines: 1,
+          textAlign: isScreenMedium ? TextAlign.left : TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          style: theme.textTheme.bodyLarge!.copyWith(
+            color: theme.hintColor,
+            fontSize: isScreenMedium ? 12 : 14,
+          ),
         ),
-      ),
+      ],
     );
   }
 }

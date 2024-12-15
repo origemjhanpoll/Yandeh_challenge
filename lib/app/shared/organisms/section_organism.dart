@@ -127,7 +127,7 @@ class _SectionOrganismState extends State<SectionOrganism> {
                             isAdded: widget.addedList.contains(product.id),
                             onPressed: () => widget.onAdd(product),
                             image:
-                                'https://s3-alpha-sig.figma.com/img/3d07/100e/c12efb8956c87335b9763b3771d7dfab?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fScalgZsV39EGcV~9WkM3722wUaZw9PdwXssBlipYgnBNIzrfK2kfkeCphgivDTho47tQTqbFSY3pmxb7ZfynBgtLBOd6JfJQZeD3HDw7uATQGUexQMjWAHN41E6qqvSxLDXiyI-TVNOQGD9UB9R4lgFExI~pxnYX4UxM1pKOO2AVgDiz2VCQ-9T-n~82EETDF2sjZ2PsdbPy0HcEXvjxCo6ZDAj5RZ9QsUb-w7Md3SYurQW5TRgCsyGldmccRhasIvM4I2vrrax3DUvpK1krbbdLVvHBVU8G5vK5Lk02RC0d7FaXyg50YIGKU1bXc0h2sphLKt2go4fBl~a8RrRbw__',
+                                'https://s3-alpha-sig.figma.com/img/3d07/100e/c12efb8956c87335b9763b3771d7dfab?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Q-5i0Op25yh5d-wjw9kElwWpn3QCqIIyZ4ciQDq2vzvBCtDFjKf523434xdK45qiDIjpKO-p-80NWRjK3toB-qRrFr8nyED77mIPapjEKEewFk5MqQokMVgrQ0S~hOJN05xjK2Szh1b1TrU0bG30UjtlgqENcEmXo761-pfuJdWrF08rw7VDJjmwatdUAdPYXztRz~-SCkerghvVGVCZUwHZfphl1OLKssFuInvHsWrVUxWhFrdYLeeKCn~YylsGReJ4V-UawiQeiXQeROrL0bfLMjF0KwwdzIcFUhKHKA6jgAhtJ4TeZA2f6DsuJf~-0hy3zMkMqoY6woDk5ykNmw__',
                             title:
                                 'R\$ ${product.price} ${product.unitMessure}',
                             subtitle: product.name,

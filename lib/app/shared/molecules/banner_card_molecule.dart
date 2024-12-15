@@ -40,7 +40,7 @@ class BannerCardMolecule extends StatelessWidget {
               height: 280.0,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(40.0)),
-                color: Colors.black.withOpacity(.5),
+                color: Colors.black.withValues(alpha: 0.5),
               ),
             ),
             Column(

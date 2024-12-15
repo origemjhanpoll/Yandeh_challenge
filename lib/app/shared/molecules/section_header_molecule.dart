@@ -27,10 +27,11 @@ class SectionHeaderMolecule extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
               style: theme.textTheme.titleMedium!.copyWith(
                 fontWeight: FontWeight.w700,
               ),
@@ -41,10 +42,25 @@ class SectionHeaderMolecule extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 14.0),
-                  child: Text(description!),
+                  child: Text(
+                    description!,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
-            OutlinedButton(onPressed: onPressed, child: Text(textButtton)),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: OutlinedButton(
+                    onPressed: onPressed,
+                    child: Text(
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      textButtton,
+                    )),
+              ),
+            ),
           ],
         ),
       ),

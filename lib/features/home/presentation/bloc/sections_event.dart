@@ -9,10 +9,18 @@ abstract class SectionsEvent extends Equatable {
 
 final class GetSectionsEvent extends SectionsEvent {
   final bool? originalSections;
-  final String? argument;
 
-  const GetSectionsEvent({this.originalSections, this.argument});
+  const GetSectionsEvent({this.originalSections});
 
   @override
-  List<Object?> get props => [originalSections, argument];
+  List<Object?> get props => [originalSections];
+}
+
+final class SearchProductsEvent extends SectionsEvent {
+  final String argument;
+
+  const SearchProductsEvent({required this.argument});
+
+  @override
+  List<Object?> get props => [argument];
 }

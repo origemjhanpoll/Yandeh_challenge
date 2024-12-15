@@ -6,9 +6,11 @@ class ChipAtom extends StatelessWidget {
     required this.label,
     required this.selected,
     this.onSelected,
+    this.color,
   });
   final String label;
   final bool selected;
+  final Color? color;
   final void Function(bool)? onSelected;
 
   @override
@@ -21,7 +23,7 @@ class ChipAtom extends StatelessWidget {
           fontWeight: selected ? FontWeight.bold : null,
         ),
       ),
-      selectedColor: Colors.red,
+      selectedColor: color ?? Colors.red,
       visualDensity: VisualDensity.compact,
       selected: selected,
       onSelected: onSelected,
