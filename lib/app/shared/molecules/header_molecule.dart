@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yandeh_challenge/app/shared/styles/sizes.dart';
 
-class SectionHeaderMolecule extends StatelessWidget {
-  const SectionHeaderMolecule({
+class HeaderMolecule extends StatelessWidget {
+  const HeaderMolecule({
     super.key,
     required this.title,
     this.description,

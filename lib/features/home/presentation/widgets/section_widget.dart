@@ -6,11 +6,11 @@ import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
 import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
 import 'package:yandeh_challenge/app/shared/atoms/icon_elevation_button_atom.dart';
 import 'package:yandeh_challenge/app/shared/molecules/product_card_molecule.dart';
-import 'package:yandeh_challenge/app/shared/molecules/section_header_molecule.dart';
+import 'package:yandeh_challenge/app/shared/molecules/header_molecule.dart';
 import 'package:yandeh_challenge/app/shared/styles/sizes.dart';
 
-class SectionOrganism extends StatefulWidget {
-  const SectionOrganism({
+class SectionWidget extends StatefulWidget {
+  const SectionWidget({
     super.key,
     required this.section,
     required this.color,
@@ -24,10 +24,10 @@ class SectionOrganism extends StatefulWidget {
   final List<int> addedList;
 
   @override
-  State<SectionOrganism> createState() => _SectionOrganismState();
+  State<SectionWidget> createState() => _SectionOrganismState();
 }
 
-class _SectionOrganismState extends State<SectionOrganism> {
+class _SectionOrganismState extends State<SectionWidget> {
   late ScrollController scrollController;
   int currentIndex = 0;
   final sectionSize = 488.0;
@@ -105,12 +105,11 @@ class _SectionOrganismState extends State<SectionOrganism> {
                   children: [
                     Padding(
                       padding: EdgeInsets.all(isScreenMedium ? 24.0 : 16.0),
-                      child: SectionHeaderMolecule(
+                      child: HeaderMolecule(
                         title: widget.section.section,
                         description: widget.section.description,
                         textButtton:
                             'Ver ${widget.section.products.length} itens',
-                        onPressed: () {},
                       ),
                     ),
                     Flexible(

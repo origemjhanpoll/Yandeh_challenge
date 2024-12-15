@@ -4,7 +4,7 @@ import 'package:yandeh_challenge/app/dependencies/injection.dart';
 import 'package:yandeh_challenge/features/home/presentation/bloc/sections_bloc.dart';
 import 'package:yandeh_challenge/app/shared/molecules/banner_card_molecule.dart';
 import 'package:yandeh_challenge/app/shared/organisms/favorite_sections_organism.dart';
-import 'package:yandeh_challenge/app/shared/organisms/section_organism.dart';
+import 'package:yandeh_challenge/features/home/presentation/widgets/section_widget.dart';
 import 'package:yandeh_challenge/app/shared/styles/sizes.dart';
 import 'package:yandeh_challenge/features/home/presentation/widgets/app_bar_title_widget.dart';
 import 'package:yandeh_challenge/features/home/presentation/widgets/tabs_home_widget.dart';
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(bottom: 16.0),
-                                    child: SectionOrganism(
+                                    child: SectionWidget(
                                       addedList: productsCount.value,
                                       onAdd: (prod) {
                                         setState(() {
