@@ -106,6 +106,7 @@ class _SectionOrganismState extends State<SectionWidget> {
                     Padding(
                       padding: EdgeInsets.all(isScreenMedium ? 24.0 : 16.0),
                       child: HeaderMolecule(
+                        onPressed: () {},
                         title: widget.section.section,
                         description: widget.section.description,
                         textButtton:
