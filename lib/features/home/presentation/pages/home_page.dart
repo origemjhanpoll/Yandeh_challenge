@@ -61,13 +61,15 @@ class _HomePageState extends State<HomePage> {
           onPressedShopping: () => setState(() => productsCount.value.clear()),
           onSubmittedSearch: (argument) {
             if (argument.isNotEmpty) {
-              bloc.add(SearchProductsEvent(argument: argument));
+              bloc.add(GetSectionsEvent(argument: argument));
             }
           },
           onPresseddSearch: (argument) =>
-              bloc.add(SearchProductsEvent(argument: argument)),
-          onPressedLogo: () =>
-              bloc.add(const GetSectionsEvent(originalSections: true)),
+              bloc.add(GetSectionsEvent(argument: argument)),
+          onPressedLogo: () {
+            bloc.add(const GetSectionsEvent(originalSections: true));
+            controller.clear();
+          },
           valueListenableInShopping: productsCount,
         ),
         bottom: const PreferredSize(
@@ -87,26 +89,40 @@ class _HomePageState extends State<HomePage> {
             return const Center(child: CircularProgressIndicator());
           } else if (state is SectionsEmpty) {
             return Center(
-                child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: RichText(
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                text: TextSpan(
-                    text: 'Nenhum produto encontrado para "',
-                    children: [
-                      TextSpan(
-                        text: controller.text,
-                        style: theme.textTheme.titleMedium!
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      const TextSpan(
-                        text: '".',
-                      ),
-                    ]),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RichText(
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      text: TextSpan(
+                          text: 'Nenhum produto encontrado para "',
+                          children: [
+                            TextSpan(
+                              text: controller.text,
+                              style: theme.textTheme.titleMedium!
+                                  .copyWith(fontWeight: FontWeight.bold),
+                            ),
+                            const TextSpan(
+                              text: '".',
+                            ),
+                          ]),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          bloc.add(
+                              const GetSectionsEvent(originalSections: true));
+                          controller.clear();
+                        },
+                        child: const Text('Ir para Home'))
+                  ],
+                ),
               ),
-            ));
+            );
           } else if (state is SectionsError) {
             return Center(child: Text(state.message));
           } else if (state is SectionsLoaded) {

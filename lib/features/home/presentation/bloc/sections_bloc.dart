@@ -14,33 +14,13 @@ class SectionsBloc extends Bloc<SectionsEvent, SectionsState> {
 
   SectionsBloc({required this.getSections}) : super(SectionsInitial()) {
     on<GetSectionsEvent>(_getSections);
-    on<SearchProductsEvent>(_searchSections);
   }
 
   void _getSections(GetSectionsEvent event, Emitter<SectionsState> emit) async {
     emit(SectionsLoading());
     try {
-      final sections =
-          await getSections(originalSections: event.originalSections);
-      if (sections.isNotEmpty) {
-        emit(SectionsLoaded(sections: sections));
-      } else {
-        emit(SectionsEmpty());
-      }
-    } on HttpException catch (e) {
-      emit(SectionsError(message: e.message));
-    } catch (e, s) {
-      emit(SectionsError(message: 'Erro: $e'));
-      debugPrint('Erro bloc: $e');
-      debugPrint('Stack trace: $s');
-    }
-  }
-
-  void _searchSections(
-      SearchProductsEvent event, Emitter<SectionsState> emit) async {
-    try {
-      emit(SectionsLoading());
-      final sections = await getSections(argument: event.argument);
+      final sections = await getSections(
+          originalSections: event.originalSections, argument: event.argument);
       if (sections.isNotEmpty &&
           sections.any((section) => section.products.isNotEmpty)) {
         emit(SectionsLoaded(sections: sections));
