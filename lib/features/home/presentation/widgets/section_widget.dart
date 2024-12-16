@@ -15,13 +15,13 @@ class SectionWidget extends StatefulWidget {
     required this.section,
     required this.color,
     required this.onAdd,
-    required this.addedList,
+    required this.productsCount,
   });
 
   final Section section;
   final Color color;
   final void Function(Product) onAdd;
-  final List<int> addedList;
+  final List<int> productsCount;
 
   @override
   State<SectionWidget> createState() => _SectionOrganismState();
@@ -124,7 +124,7 @@ class _SectionOrganismState extends State<SectionWidget> {
                         itemBuilder: (context, index) {
                           final product = widget.section.products[index];
                           return ProductCardMolecule(
-                            isAdded: widget.addedList.contains(product.id),
+                            isAdded: widget.productsCount.contains(product.id),
                             onPressed: () => widget.onAdd(product),
                             image:
                                 'https://s3-alpha-sig.figma.com/img/3d07/100e/c12efb8956c87335b9763b3771d7dfab?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Q-5i0Op25yh5d-wjw9kElwWpn3QCqIIyZ4ciQDq2vzvBCtDFjKf523434xdK45qiDIjpKO-p-80NWRjK3toB-qRrFr8nyED77mIPapjEKEewFk5MqQokMVgrQ0S~hOJN05xjK2Szh1b1TrU0bG30UjtlgqENcEmXo761-pfuJdWrF08rw7VDJjmwatdUAdPYXztRz~-SCkerghvVGVCZUwHZfphl1OLKssFuInvHsWrVUxWhFrdYLeeKCn~YylsGReJ4V-UawiQeiXQeROrL0bfLMjF0KwwdzIcFUhKHKA6jgAhtJ4TeZA2f6DsuJf~-0hy3zMkMqoY6woDk5ykNmw__',

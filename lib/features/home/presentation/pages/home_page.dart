@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                                     padding:
                                         const EdgeInsets.only(bottom: 16.0),
                                     child: SectionWidget(
-                                      addedList: productsCount.value,
+                                      productsCount: productsCount.value,
                                       onAdd: (prod) {
                                         setState(() {
                                           if (!productsCount.value
