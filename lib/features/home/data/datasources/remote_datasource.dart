@@ -6,7 +6,8 @@ import 'package:http/http.dart' as http;
 
 class RemoteDataSource {
   final http.Client client;
-  RemoteDataSource({required this.client});
+  final String token;
+  RemoteDataSource({required this.client, required this.token});
 
   Future<Map<String, dynamic>> getSections(
       {bool? originalSections, String? argument}) async {
@@ -47,7 +48,7 @@ class RemoteDataSource {
 
   Map<String, String> _buildHeaders() {
     return {
-      'token': '4e82bf6c-4ccd-4c4f-804e-8317a195d1ea',
+      'token': token,
       'Content-Type': 'application/json',
     };
   }

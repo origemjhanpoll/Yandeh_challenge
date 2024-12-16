@@ -11,8 +11,9 @@ final di = GetIt.instance;
 Future<void> init() async {
   di.registerLazySingleton<http.Client>(() => http.Client());
 
-  di.registerLazySingleton<RemoteDataSource>(
-      () => RemoteDataSource(client: di<http.Client>()));
+  di.registerLazySingleton<RemoteDataSource>(() => RemoteDataSource(
+      client: di<http.Client>(),
+      token: '4e82bf6c-4ccd-4c4f-804e-8317a195d1ea'));
   di.registerLazySingleton<ISectionsRepository>(
       () => SectionsRepository(di<RemoteDataSource>()));
   di.registerLazySingleton(() => GetSections(di<ISectionsRepository>()));
