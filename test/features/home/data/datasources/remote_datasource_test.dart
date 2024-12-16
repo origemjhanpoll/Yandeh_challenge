@@ -29,7 +29,7 @@ void main() async {
     mockClient;
   });
 
-  group('getSections => ', () {
+  group('GetSections Remote Datasource => ', () {
     test(
         'should return a map with sections and candidate when the response code is 200 and not empty sections',
         () async {

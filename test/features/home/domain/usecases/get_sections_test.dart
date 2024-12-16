@@ -21,7 +21,7 @@ void main() async {
     mockSectionsRepository;
   });
 
-  group('GetSections => ', () {
+  group('GetSections Usecase => ', () {
     test('should return a list of section when called successfully', () async {
       when(mockSectionsRepository.getSections(
               argument: 'test', originalSections: true))

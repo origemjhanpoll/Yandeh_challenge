@@ -7,7 +7,7 @@ import '../../../../sample/product_sample.dart';
 void main() async {
   final mockJson = await loadJson('test/json/product.json');
 
-  group('Product => ', () {
+  group('Product Entity => ', () {
     test('should correctly create a Product from JSON', () {
       final result = Product.fromJson(mockJson);
 

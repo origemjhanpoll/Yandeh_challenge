@@ -7,7 +7,7 @@ import '../../../../sample/section_sample.dart';
 void main() async {
   final mockJson = await loadJson('test/json/section.json');
 
-  group('Section => ', () {
+  group('Section Entity => ', () {
     test('should correctly create a Section from JSON', () {
       final result = Section.fromJson(mockJson);
 

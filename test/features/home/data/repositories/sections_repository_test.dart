@@ -26,7 +26,7 @@ void main() async {
     mockRemoteDataSource;
   });
 
-  group('getSections => ', () {
+  group('GetSections Repository => ', () {
     test('should return a list of Section when getSections succeeds', () async {
       when(mockRemoteDataSource.getSections(
         argument: null,
