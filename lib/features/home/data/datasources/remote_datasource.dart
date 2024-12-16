@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteDataSource {
@@ -20,7 +19,6 @@ class RemoteDataSource {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(response.body);
-      debugPrint('Request URL: ${response.request?.url}');
       return data;
     } else {
       if (response.body.contains('message')) {
