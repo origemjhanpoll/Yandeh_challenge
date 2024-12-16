@@ -1,7 +1,7 @@
 import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
 import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
 
-get sectionsSample => [
+List<Section> get dataSample => [
       const Section(
         section: "Promo",
         description: "Aproveite os melhores preços em hortifruti.",

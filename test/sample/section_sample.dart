@@ -1,7 +1,7 @@
 import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
 import 'package:yandeh_challenge/features/home/domain/entities/section.dart';
 
-get sectionSample => const Section(
+Section get sectionSample => const Section(
       section: "Temperos",
       description: "Uma seleção completa para seus clientes.",
       products: [

@@ -31,7 +31,7 @@ void main() async {
 
       final result = await repository.getSections(argument: null);
 
-      expect(result, sectionsSample);
+      expect(result, dataSample);
       verify(mockRemoteDataSource.getSections(
         argument: null,
         originalSections: null,

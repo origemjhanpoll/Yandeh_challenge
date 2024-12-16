@@ -1,6 +1,6 @@
 import 'package:yandeh_challenge/features/home/domain/entities/product.dart';
 
-get productSample => const Product(
+Product get productSample => const Product(
       id: 18992,
       name: "CEBOLA BENASSI BRANCA IMPORTADA 1 KG",
       sku: "1449654",
