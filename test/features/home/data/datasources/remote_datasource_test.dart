@@ -26,10 +26,10 @@ void main() async {
   });
 
   tearDown(() {
-    mockClient.close();
+    mockClient;
   });
 
-  group('getSections', () {
+  group('getSections => ', () {
     test(
         'should return a map with sections and candidate when the response code is 200 and not empty sections',
         () async {

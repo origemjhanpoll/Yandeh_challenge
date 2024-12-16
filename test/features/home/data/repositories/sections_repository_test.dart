@@ -22,7 +22,11 @@ void main() async {
     repository = SectionsRepository(mockRemoteDataSource);
   });
 
-  group('getSections', () {
+  tearDown(() {
+    mockRemoteDataSource;
+  });
+
+  group('getSections => ', () {
     test('should return a list of Section when getSections succeeds', () async {
       when(mockRemoteDataSource.getSections(
         argument: null,
@@ -41,16 +45,13 @@ void main() async {
 
     test('should throw HttpException when getSections throws HttpException',
         () async {
-      // Arrange
       when(mockRemoteDataSource.getSections(
               argument: anyNamed('argument'),
               originalSections: anyNamed('originalSections')))
           .thenThrow(const HttpException('Network error'));
 
-      // Act
       final call = repository.getSections;
 
-      // Assert
       expect(() => call(argument: 'test'), throwsA(isA<HttpException>()));
       verify(mockRemoteDataSource.getSections(
         argument: 'test',
@@ -59,16 +60,13 @@ void main() async {
     });
 
     test('should throw generic Exception for unexpected errors', () async {
-      // Arrange
       when(mockRemoteDataSource.getSections(
               argument: anyNamed('argument'),
               originalSections: anyNamed('originalSections')))
           .thenThrow(Exception('Unexpected error'));
 
-      // Act
       final call = repository.getSections;
 
-      // Assert
       expect(() => call(argument: 'test'), throwsA(isA<Exception>()));
       verify(mockRemoteDataSource.getSections(
         argument: 'test',
