@@ -38,7 +38,7 @@ class Product extends Equatable {
       ean: json['ean'] ?? '',
       unitContent: (json['unitContent'] as num).toInt(),
       unitMessure: json['unitMessure'] ?? '',
-      packageQuantity: (json['unitContent'] as num).toInt(),
+      packageQuantity: (json['packageQuantity'] as num).toInt(),
       price: (json['price'] as String).isNotEmpty ? json['price'] : '0.0',
     );
   }

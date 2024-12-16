@@ -17,7 +17,7 @@ void main() async {
   const baseUrl =
       'https://gateway-smartforce.yandeh.com.br/process/candidates/search-products';
 
-  final responseJson = await loadJson('test/json/data.json');
+  final mockJson = await loadJson('test/json/data.json');
 
   setUp(() {
     mockClient = MockClient();
@@ -42,12 +42,12 @@ void main() async {
           'Content-Type': 'application/json',
         },
       )).thenAnswer(
-        (_) async => http.Response(jsonEncode(responseJson), 200),
+        (_) async => http.Response(jsonEncode(mockJson), 200),
       );
 
       final result = await remoteDataSource.getSections(argument: '*');
 
-      expect(result, responseJson);
+      expect(result, mockJson);
       verify(mockClient.get(
         uri,
         headers: {
