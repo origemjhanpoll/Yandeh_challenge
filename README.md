@@ -2,6 +2,13 @@
 
 Este repositório contém o projeto "Yandeh Challenge", desenvolvido com Flutter. Siga as instruções abaixo para clonar, instalar dependências e rodar o projeto na sua máquina.
 
+### Screenshots
+
+<div style="display: flex; gap: 10px;">
+  <img src="assets/image/screen2.png" height="580" />
+  <img src="assets/image/screen1.png" height="580"/>
+</div>
+
 ## Requisitos
 
 Antes de rodar o projeto, certifique-se de que você tem o Flutter instalado. Caso não tenha, siga as instruções para instalação no link abaixo:
@@ -71,4 +78,5 @@ lib/
 │   │   ├── molecules/
 │   │   ├── organisms/
 │   │   └── styles/ # Estilos globais, como temas, cores e etc.
+.   .
 ```
