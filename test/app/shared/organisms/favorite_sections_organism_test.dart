@@ -47,8 +47,7 @@ void main() {
       }
     });
 
-    testWidgets('should check horizontal scroll functionality',
-        (WidgetTester tester) async {
+    testWidgets('should check horizontal scroll functionality', (tester) async {
       final favoriteList = List.generate(
         4,
         (index) => FavoriteCardType(
