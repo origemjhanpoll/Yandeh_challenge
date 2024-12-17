@@ -5,8 +5,8 @@ Este repositório contém o projeto "Yandeh Challenge", desenvolvido com Flutter
 ### Screenshots
 
 <div style="display: flex; gap: 10px;">
-  <img src="assets/image/screen2.png" height="580" />
-  <img src="assets/image/screen1.png" height="580"/>
+  <img src="assets/image/screen2.png" height="380" />
+  <img src="assets/image/screen1.png" height="380"/>
 </div>
 
 ## Requisitos
