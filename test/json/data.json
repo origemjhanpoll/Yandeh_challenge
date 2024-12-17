@@ -1,0 +1,134 @@
+{
+  "sections": [
+    {
+      "section": "Promo",
+      "description": "Aproveite os melhores preços em hortifruti.",
+      "products": [
+        {
+          "id": 18995,
+          "name": "GOIABA BENASSI VERMELHA NACIONAL COM REDINHA 1 KG",
+          "sku": "1449791",
+          "category": "FRUTAS",
+          "unitType": "",
+          "package": "CAIXA",
+          "ean": "04052176000490-013242",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 6,
+          "price": "3.19"
+        }
+      ]
+    },
+    {
+      "section": "Descubra",
+      "description": "Seu hortifruti mais completo com estes itens.",
+      "products": [
+        {
+          "id": 18995,
+          "name": "GOIABA BENASSI VERMELHA NACIONAL COM REDINHA 1 KG",
+          "sku": "1449791",
+          "category": "FRUTAS",
+          "unitType": "",
+          "package": "CAIXA",
+          "ean": "04052176000490-013242",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 6,
+          "price": "3.19"
+        }
+      ]
+    },
+    {
+      "section": "Preferidos",
+      "description": "Veja os produtos mais queridos pelos nossos clientes.",
+      "products": []
+    },
+    {
+      "section": "Frutas",
+      "description": "Direto do pomar com altíssima qualidade.",
+      "products": [
+        {
+          "id": 18995,
+          "name": "GOIABA BENASSI VERMELHA NACIONAL COM REDINHA 1 KG",
+          "sku": "1449791",
+          "category": "FRUTAS",
+          "unitType": "",
+          "package": "CAIXA",
+          "ean": "04052176000490-013242",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 6,
+          "price": "3.19"
+        }
+      ]
+    },
+    {
+      "section": "Legumes",
+      "description": "Direto da horta para sua loja.",
+      "products": [
+        {
+          "id": 9574,
+          "name": "BETERRABA BENASSI NACIONAL 1 KG",
+          "sku": "1386011",
+          "category": "LEGUMES E TUBÉRCULOS",
+          "unitType": "",
+          "package": "CAIXA",
+          "ean": "04052176000490-000648",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 20,
+          "price": "2.14"
+        }
+      ]
+    },
+    {
+      "section": "Hortifruti",
+      "description": "Veja opções fresquinhas para abastecer seu hortifruti.",
+      "products": []
+    },
+    {
+      "section": "Fracionados",
+      "description": "Produtos prontos para exposição.",
+      "products": [
+        {
+          "id": 16058,
+          "name": "PISTACHE BENASSI TORRADO E SALGADO POTE 110 G",
+          "sku": "1431469",
+          "category": "APERITIVOS E OLEAGINOSAS A GRANEL",
+          "package": "UNIDADE",
+          "ean": "7898205076325",
+          "unitContent": 110,
+          "unitMessure": "G",
+          "packageQuantity": 1,
+          "price": "1.49"
+        }
+      ]
+    },
+    {
+      "section": "Temperos",
+      "description": "Uma seleção completa para seus clientes.",
+      "products": [
+        {
+          "id": 18992,
+          "name": "CEBOLA BENASSI BRANCA IMPORTADA 1 KG",
+          "sku": "1449654",
+          "category": "TEMPEROS E ERVAS FRESCAS",
+          "unitType": "",
+          "package": "SACO",
+          "ean": "04052176000490-015923",
+          "unitContent": 1,
+          "unitMessure": "KG",
+          "packageQuantity": 20,
+          "price": "2.57"
+        }
+      ]
+    }
+  ],
+  "candidate": {
+    "id": "2e227fd8-3d5a-4fb7-b119-8a1c07830c96",
+    "name": "Jean",
+    "expiration_date": "2024-12-09",
+    "createdAt": "2024-11-22T19:05:53.650Z",
+    "updatedAt": "2024-11-22T19:05:53.650Z"
+  }
+}
