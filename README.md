@@ -37,26 +37,38 @@ flutter run
 
 ## Estrutura
 
+### Arquitertura
+
+Foi aplicado o **_Clean Architecture_** é uma arquitetura de software que organiza o código-fonte de maneira modular e desacoplada:
+
 ```bash
 lib/
-├── app/
-│   ├── shared/ # Biblioteca de componentes compartilhados
-│   │   ├── atoms/
-│   │   ├── molecules/
-│   │   ├── organisms/
-│   │   └── styles/ # Estilos globais, como temas, cores e tipografia
-│   ├── routes/ # Configuração de rotas
-│   ├── dependencies/ # Configuração de injeção de dependência
-│   └── env/ # Configurações de ambiente
-├── features/ # Funcionalidades do aplicativo
-│   ├── home/ # Home
+├── features/
+│   ├── Home/
 │   │   ├── data/
 │   │   │   ├── datasources/
 │   │   │   └── repositories/
 │   │   ├── domain/
+│   │   │   ├── entities/
+│   │   │   ├── repositories/
+│   │   │   └── usecases/
 │   │   └── presentation/
-│   ├── routes/ # Configuração de rotas
-│   ├── dependencies/ # Configuração de injeção de dependência
-│   └── env/ # Configurações de ambiente
-├── main.dart
+│   │       ├── bloc/
+│   │       ├── pages/
+│   │       └── widgets/
+.   .
+```
+
+### Metodologia
+
+Foi aplicado o **_Design Atômico_** uma metodologia de design de interfaces que organiza componentes visuais de forma modular e reutilizável.
+
+```bash
+lib/
+├── app/
+│   ├── shared/ # [Design Atômico] Biblioteca de componentes compartilhados
+│   │   ├── atoms/
+│   │   ├── molecules/
+│   │   ├── organisms/
+│   │   └── styles/ # Estilos globais, como temas, cores e etc.
 ```
