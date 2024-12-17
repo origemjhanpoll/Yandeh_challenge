@@ -14,13 +14,30 @@ Antes de rodar o projeto, certifique-se de que você tem o Flutter instalado. Ca
 
 Clone este repositório na sua máquina local:
 
-```bash
+```dart
 git clone https://github.com/origemjhanpoll/yandeh_challenge.git
+```
+
+### 2. Instalar as Dependências
+
+Navegue até o diretório do projeto e instale as dependências:
+
+```dart
+cd yandeh_challenge
+flutter pub get
+```
+
+### 3. Rodar o Projeto
+
+Agora, basta rodar o projeto no seu dispositivo ou emulador:
+
+```dart
+flutter run
+```
 
 ## Estrutura
 
 ```bash
-
 lib/
 ├── app/
 │   ├── shared/ # Biblioteca de componentes compartilhados
