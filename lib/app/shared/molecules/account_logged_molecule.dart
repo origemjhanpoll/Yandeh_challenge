@@ -14,7 +14,7 @@ class AccountLoggedMolecule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final isScreenMedium = MediaQuery.of(context).size.width > ScreenSize.small;
+    final isScreenMedium = MediaQuery.sizeOf(context).width > ScreenSize.small;
 
     return Column(
       children: [

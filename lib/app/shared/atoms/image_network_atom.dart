@@ -29,10 +29,8 @@ class ImageNetworkAtom extends StatelessWidget {
               height: height,
               child: DecoratedBox(
                 decoration: BoxDecoration(color: Colors.blueGrey[50]),
-                child: const Icon(
-                  color: Colors.blueGrey,
-                  Icons.dangerous_outlined,
-                ),
+                child: const Icon(Icons.dangerous_outlined,
+                    color: Colors.blueGrey),
               ),
             );
           },

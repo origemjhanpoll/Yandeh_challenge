@@ -21,7 +21,7 @@ void main() {
   });
 
   group('SectionsBloc => ', () {
-    test('initial state is SectionsInitial', () {
+    test('emit [SectionsInitial] initial state', () {
       expect(sectionsBloc.state, SectionsInitial());
     });
 

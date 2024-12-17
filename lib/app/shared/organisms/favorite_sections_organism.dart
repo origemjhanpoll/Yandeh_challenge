@@ -22,9 +22,9 @@ class FavoriteSectionsOrganism extends StatelessWidget {
   });
 
   final String backgroundImage;
-  final List<FavoriteCardType> favoriteList;
   final void Function()? onPressed;
 
+  final List<FavoriteCardType> favoriteList;
   @override
   Widget build(BuildContext context) {
     final isScreenMedium = MediaQuery.of(context).size.width > ScreenSize.small;

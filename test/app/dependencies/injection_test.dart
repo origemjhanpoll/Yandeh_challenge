@@ -17,27 +17,30 @@ void main() {
     di.reset();
   });
 
-  test('Should inject dependencies properly', () {
-    final mockClient = MockClient();
-    final mockRemoteDataSource = MockRemoteDataSource();
-    final mockSectionsRepository = MockISectionsRepository();
+  group('Injection => ', () {
+    test('should inject dependencies properly', () {
+      final mockClient = MockClient();
+      final mockRemoteDataSource = MockRemoteDataSource();
+      final mockSectionsRepository = MockISectionsRepository();
 
-    di.registerLazySingleton<http.Client>(() => mockClient);
-    di.registerLazySingleton<RemoteDataSource>(() => mockRemoteDataSource);
-    di.registerLazySingleton<ISectionsRepository>(() => mockSectionsRepository);
-    di.registerLazySingleton(() => GetSections(mockSectionsRepository));
-    di.registerFactory(() => SectionsBloc(getSections: di<GetSections>()));
+      di.registerLazySingleton<http.Client>(() => mockClient);
+      di.registerLazySingleton<RemoteDataSource>(() => mockRemoteDataSource);
+      di.registerLazySingleton<ISectionsRepository>(
+          () => mockSectionsRepository);
+      di.registerLazySingleton(() => GetSections(mockSectionsRepository));
+      di.registerFactory(() => SectionsBloc(getSections: di<GetSections>()));
 
-    final client = di<http.Client>();
-    final remoteDataSource = di<RemoteDataSource>();
-    final repository = di<ISectionsRepository>();
-    final useCase = di<GetSections>();
-    final bloc = di<SectionsBloc>();
+      final client = di<http.Client>();
+      final remoteDataSource = di<RemoteDataSource>();
+      final repository = di<ISectionsRepository>();
+      final useCase = di<GetSections>();
+      final bloc = di<SectionsBloc>();
 
-    expect(client, mockClient);
-    expect(remoteDataSource, mockRemoteDataSource);
-    expect(repository, mockSectionsRepository);
-    expect(useCase, isA<GetSections>());
-    expect(bloc, isA<SectionsBloc>());
+      expect(client, mockClient);
+      expect(remoteDataSource, mockRemoteDataSource);
+      expect(repository, mockSectionsRepository);
+      expect(useCase, isA<GetSections>());
+      expect(bloc, isA<SectionsBloc>());
+    });
   });
 }
