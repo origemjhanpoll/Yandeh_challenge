@@ -29,8 +29,13 @@ class RemoteDataSource {
   }
 
   String _buildUrl(String? argument, bool? originalSections) {
+    // URL oficial: Não está mais disponível;
+    // const baseUrl =
+    //     'https://gateway-smartforce.yandeh.com.br/process/candidates/search-products';
+
+    // URL fake: Buscando direto do JSON nos testes;
     const baseUrl =
-        'https://gateway-smartforce.yandeh.com.br/process/candidates/search-products';
+        'https://raw.githubusercontent.com/origemjhanpoll/yandeh_challenge/refs/heads/main/test/json/data.json';
     final queryParameters = <String, String>{
       'argument': argument ?? '*',
     };
